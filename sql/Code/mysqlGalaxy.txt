@@ -1,0 +1,98 @@
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Carleen', 'Elliptical galaxy', 78, 2, 2, 399, 101);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Cheslock', 'Barred spiral galaxy', 198, 2, 1, 335, 196);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Xenia', 'Dwarf galaxy', 153, 2, 1, 353, 157);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Xu', 'Spiral galaxy', 192, 1, 1, 352, 100);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Leola', 'Peculiar galaxies', 130, 2, 3, 388, 89);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Larkin', 'Barred spiral galaxy', 190, 2, 2, 291, 61);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Crista', 'Barred spiral galaxy', 186, 1, 4, 339, 120);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Calvi', 'Peculiar galaxies', 91, 1, 2, 121, 160);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Otis', 'Elliptical galaxy', 107, 1, 2, 376, 58);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Ohlinger', 'Dwarf galaxy', 115, 1, 1, 380, 55);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Perry', 'Dwarf galaxy', 63, 2, 1, 71, 121);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Peres', 'Dwarf galaxy', 115, 1, 4, 165, 174);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Alethea', 'Elliptical galaxy', 95, 2, 2, 143, 106);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Adamo', 'Peculiar galaxies', 181, 1, 1, 110, 184);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Stephanie', 'Peculiar galaxies', 136, 2, 1, 172, 172);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Sarkis', 'Peculiar galaxies', 145, 2, 4, 262, 145);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Theresa', 'Spiral galaxy', 169, 2, 4, 349, 145);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Touchton', 'Spiral galaxy', 157, 1, 3, 103, 138);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Colette', 'Peculiar galaxies', 151, 2, 2, 186, 124);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Choate', 'Dwarf galaxy', 167, 2, 3, 162, 119);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Vernia', 'Barred spiral galaxy', 192, 2, 4, 260, 111);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Vittetoe', 'Barred spiral galaxy', 139, 1, 1, 289, 175);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Elroy', 'Peculiar galaxies', 66, 2, 1, 138, 36);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Emmert', 'Elliptical galaxy', 176, 2, 4, 287, 89);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Jani', 'Elliptical galaxy', 166, 2, 3, 109, 154);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Joslyn', 'Elliptical galaxy', 81, 2, 4, 385, 45);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Blondell', 'Peculiar galaxies', 184, 2, 4, 268, 184);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Beckles', 'Dwarf galaxy', 101, 2, 3, 95, 132);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Loris', 'Spiral galaxy', 139, 1, 3, 230, 32);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Lightner', 'Elliptical galaxy', 81, 1, 3, 393, 169);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Armando', 'Elliptical galaxy', 150, 1, 2, 144, 41);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Aubert', 'Barred spiral galaxy', 147, 2, 3, 281, 186);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('India', 'Elliptical galaxy', 97, 1, 1, 250, 55);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Italiano', 'Spiral galaxy', 78, 2, 3, 174, 168);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Marquitta', 'Spiral galaxy', 151, 1, 3, 173, 33);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Mann', 'Peculiar galaxies', 89, 1, 4, 364, 139);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Josephine', 'Barred spiral galaxy', 151, 1, 1, 174, 195);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Jaggers', 'Spiral galaxy', 107, 2, 1, 182, 165);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Gail', 'Elliptical galaxy', 174, 1, 4, 100, 152);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Gracey', 'Dwarf galaxy', 190, 2, 1, 77, 90);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Allena', 'Peculiar galaxies', 171, 2, 3, 154, 52);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Aguinaga', 'Spiral galaxy', 167, 2, 4, 208, 42);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Manual', 'Spiral galaxy', 68, 1, 2, 369, 55);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Murdock', 'Dwarf galaxy', 93, 2, 1, 96, 176);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Drusilla', 'Spiral galaxy', 122, 2, 4, 139, 188);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Dufour', 'Peculiar galaxies', 87, 1, 2, 146, 91);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Cindi', 'Barred spiral galaxy', 141, 1, 3, 167, 87);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Condrey', 'Peculiar galaxies', 149, 2, 4, 356, 161);
+INSERT INTO `space`.galaxy (name, type, diameter, thickness, mass, spiralPeriod, barPeriod)
+VALUES ('Tashina', 'Dwarf galaxy', 127, 1, 4, 333, 92);

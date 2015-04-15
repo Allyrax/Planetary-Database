@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- SCROLLS -->
+    <!-- load bootstrap and fontawesome via CDN -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- SPELLS -->
+    <!-- load angular and angular route via CDN -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.min.js"></script>
+</head>
+
+<style>
+#main {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.btn {
+	margin-top: 7px;
+}
+</style>
+
+<body>
+
+<div ng-app="">
+
+    <!-- HEADER AND NAVBAR -->
+    <header>
+        <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Planets</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <button type="button" class="btn btn-default" ng-click="togglePlanets()"><a><span class="glyphicon glyphicon-globe"></span> Planets</a></button>
+                <button type="button" class="btn btn-default" ng-click="toggleGalaxyNumber()"><a><span class="glyphicon glyphicon-adjust"></span> Galaxy Number</a></button>
+                <button type="button" class="btn btn-default" ng-click="toggleComet()"><a><span class="glyphicon glyphicon-certificate"></span> Comet</a></button>
+                <button type="button" class="btn btn-default" ng-click="toggleAddGalaxy()"><a><span class="glyphicon glyphicon-plus-sign"></span> Add Galaxy</a></button>
+                <button type="button" class="btn btn-default" ng-click="toggleIncreaseMass()"><a><span class="glyphicon glyphicon-globe"></span> Increase Mass</a></button>
+            </ul>
+        </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT AND INJECTED VIEWS -->
+    <div id="main">
+    	
+        <div ng-controller="planetController">            
+            <div ng-hide="planetVar" class="container">    
+      			<h2>Show all planets for a star</h2>        
+            	<form class="form-horizontal" role="form">
+					<div class="form-group">
+                    	<label class="control-label col-sm-2" for="starName">Star Name:</label>
+          				<div class="col-sm-10">
+							<input type="text" class="form-control" id="starName" ng-model="formData.starName">
+         				</div>
+					</div>
+                    <div class="form-group">        
+                  		<div class="col-sm-offset-2 col-sm-10">
+                    		<button type="button" class="btn btn-primary" ng-click="getPlanets()">search</button>
+						</div>
+					</div>
+                </form>                
+                
+                <table class="table table-striped .table-bordered">
+                	<tr>
+						<th>Name</th>
+						<th>Orbital Period</th> 
+						<th>Orbital Eccentricity</th>
+						<th>Argument Of Periastron</th>
+						<th>Velocity</th>
+						<th>Mass</th>
+					</tr>
+                    <tr ng-repeat="planet in planets">
+                        <td>{{planet.name}}</td>                    
+                        <td>{{planet.orbitalPeriod}}</td>
+                        <td>{{planet.orbitalEccentricity}}</td>
+                        <td>{{planet.argumentOfPeriastron}}</td>
+                        <td>{{planet.velocity}}</td>
+                        <td>{{planet.mass}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div ng-controller="galaxyNumberController">            
+            <div class="container" ng-hide="galaxyNumberVar">
+      			<h2>Find the number of objects in the galaxy</h2>
+            	<form class="form-horizontal" role="form">
+					<div class="form-group">
+                    	<label class="control-label col-sm-2" for="galaxyName">Galaxy Name:</label>
+          				<div class="col-sm-10">
+							<input type="text" class="form-control" id="galaxyName" ng-model="formData.name">
+         				</div>
+					</div>
+                    
+                    <div class="form-group">        
+                  		<div class="col-sm-offset-2 col-sm-10">
+                    		<button type="button" class="btn btn-primary" ng-click="getGalaxyNumber()">search</button>
+						</div>
+					</div>
+                </form>              
+                
+                <div>
+                	<h1>{{galaxy.name}}: {{galaxy.NumOrbiters}}</h1>
+                </div>
+            </div>
+        </div>
+        
+        <div ng-controller="cometController">            
+            <div class="container" ng-hide="cometVar">
+      			<h2>Find all asteroids with the same orbital reference as the comet</h2>
+            	<form class="form-horizontal" role="form">
+					<div class="form-group">
+                    	<label class="control-label col-sm-2" for="cometId">Comet Id:</label>
+          				<div class="col-sm-10">
+							<input type="text" class="form-control" id="cometId" ng-model="formData.cometId">
+         				</div>
+					</div>
+                    
+                    <div class="form-group">        
+                  		<div class="col-sm-offset-2 col-sm-10">
+                    		<button type="button" class="btn btn-primary" ng-click="getComet()">search</button>
+						</div>
+					</div>
+                </form>                
+
+                <table class="table table-striped .table-bordered">
+                	<tr>
+						<th>Asteroid</th>
+						<th>Orbit Solution Reference</th>
+					</tr>
+                    <tr ng-repeat="comet in comets">
+                        <td>{{comet.asteroidId}}</td>
+                        <td>{{comet.orbitSolutionReference}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div ng-controller="addGalaxyController">            
+            <div class="container" ng-hide="addGalaxyVar">
+      			<h2>Add a new galaxy</h2>
+            	<form class="form-horizontal" role="form">
+					<div class="form-group">
+                    	<label class="control-label col-sm-2" for="name">Name:</label>
+          				<div class="col-sm-10">
+							<input type="text" class="form-control" id="name" ng-model="formData.name">
+         				</div>
+					</div>
+					<div class="form-group">
+                    	<label class="control-label col-sm-2" for="type">Type:</label>
+          				<div class="col-sm-10">
+							<input type="text" class="form-control" id="type" ng-model="formData.type">
+         				</div>
+					</div>
+					<div class="form-group">
+                    	<label class="control-label col-sm-2" for="diameter">Diameter:</label>
+          				<div class="col-sm-10">
+							<input type="text" class="form-control" id="diameter" ng-model="formData.diameter">
+         				</div>
+					</div>
+					<div class="form-group">
+                    	<label class="control-label col-sm-2" for="thickness">Thickness:</label>
+          				<div class="col-sm-10">
+							<input type="text" class="form-control" id="thickness" ng-model="formData.thickness">
+         				</div>
+					</div>
+					<div class="form-group">
+                    	<label class="control-label col-sm-2" for="mass">Mass:</label>
+          				<div class="col-sm-10">
+							<input type="text" class="form-control" id="mass" ng-model="formData.mass">
+         				</div>
+					</div>
+					<div class="form-group">
+                    	<label class="control-label col-sm-2" for="spiralPeriod">Spiral Period:</label>
+          				<div class="col-sm-10">
+							<input type="text" class="form-control" id="spiralPeriod" ng-model="formData.spiralPeriod">
+         				</div>
+					</div>
+					<div class="form-group">
+                    	<label class="control-label col-sm-2" for="barPeriod">Bar Period:</label>
+          				<div class="col-sm-10">
+							<input type="text" class="form-control" id="barPeriod" ng-model="formData.barPeriod">
+         				</div>
+					</div>
+                    
+                    <div class="form-group">        
+                  		<div class="col-sm-offset-2 col-sm-10">
+                    		<button type="button" class="btn btn-primary" ng-click="addGalaxy()">Add Galaxy</button>
+						</div>
+					</div>
+                </form>
+                
+                <table class="table table-striped .table-bordered">
+                	<tr>
+						<th>Name</th>
+						<th>Type</th> 
+						<th>Diameter</th>
+						<th>Thickness</th>
+						<th>Mass</th>
+						<th>Spiral Period</th>
+						<th>Bar Period</th>
+					</tr>
+                    <tr ng-repeat="galaxy in galaxies">
+                        <td>{{galaxy.name}}</td>                    
+                        <td>{{galaxy.type}}</td>
+                        <td>{{galaxy.diameter}}</td>
+                        <td>{{galaxy.thickness}}</td>
+                        <td>{{galaxy.mass}}</td>
+                        <td>{{galaxy.spiralPeriod}}</td>
+                        <td>{{galaxy.barPeriod}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div ng-controller="increaseMassController">            
+            <div class="container" ng-hide="increaseMassVar">
+      			<h2>Increase Mass of all planets orbiting a star</h2>
+            	<form class="form-horizontal" role="form">
+					<div class="form-group">
+                    	<label class="control-label col-sm-2" for="starName">Star Name:</label>
+          				<div class="col-sm-10">
+							<input type="text" class="form-control" id="starName" ng-model="formData.starName">
+         				</div>
+					</div>
+					<div class="form-group">
+                    	<label class="control-label col-sm-2" for="mass">Mass:</label>
+          				<div class="col-sm-10">
+							<input type="text" class="form-control" id="mass" ng-model="formData.mass">
+         				</div>
+					</div>
+                    
+                    <div class="form-group">        
+                  		<div class="col-sm-offset-2 col-sm-10">
+                    		<button type="button" class="btn btn-primary" ng-click="increaseMass()">search</button>
+						</div>
+					</div>
+                </form>
+                
+                <table class="table table-striped .table-bordered">
+                	<tr>
+						<th>Name</th>
+						<th>Orbital Period</th> 
+						<th>Orbital Eccentricity</th>
+						<th>Argument Of Periastron</th>
+						<th>Velocity</th>
+						<th>Mass</th>
+					</tr>
+                    <tr ng-repeat="planet in planets">
+                        <td>{{planet.name}}</td>                    
+                        <td>{{planet.orbitalPeriod}}</td>
+                        <td>{{planet.orbitalEccentricity}}</td>
+                        <td>{{planet.argumentOfPeriastron}}</td>
+                        <td>{{planet.velocity}}</td>
+                        <td>{{planet.mass}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- angular templating -->
+        <!-- this is where content will be injected -->
+
+    </div>
+</div>
+
+<script>
+
+function planetController($scope, $rootScope, $http) {
+    $rootScope.planetVar = false;
+    $rootScope.togglePlanets = function() {
+        $rootScope.planetVar		= false;
+        $rootScope.galaxyNumberVar 	= true;
+        $rootScope.cometVar 		= true;
+        $rootScope.addGalaxyVar 	= true;
+        $rootScope.increaseMassVar	= true;
+    };
+	
+	$scope.formData = {
+		starName: 'WASP-14'
+	};
+	
+	$scope.getPlanets = function() {
+		$http.post('http://localhost/planet', $scope.formData)
+		.success(function(data) {
+			$scope.planets = data;
+		});
+	}
+}
+
+function galaxyNumberController($scope, $rootScope, $http) {
+	$rootScope.galaxyNumberVar = true;
+    $rootScope.toggleGalaxyNumber = function() {
+        $rootScope.planetVar		= true;
+        $rootScope.galaxyNumberVar 	= false;
+        $rootScope.cometVar 		= true;
+        $rootScope.addGalaxyVar 	= true;
+        $rootScope.increaseMassVar	= true;
+    };
+	
+	$scope.formData = {
+		name: 'Milky Way'
+	};
+	
+	$scope.getGalaxyNumber = function() {
+		$http.post('http://localhost/galaxyNumber', $scope.formData)
+		.success(function(data) {
+			$scope.galaxy = data[0];
+		});
+	};
+}
+
+function cometController($scope, $rootScope, $http) {
+    $rootScope.cometVar = true;
+    $rootScope.toggleComet = function() {
+        $rootScope.planetVar		= true;
+        $rootScope.galaxyNumberVar 	= true;
+        $rootScope.cometVar 		= false;
+        $rootScope.addGalaxyVar 	= true;
+        $rootScope.increaseMassVar	= true;
+    };
+	
+	$scope.formData = {
+		cometId: '192'
+	};
+	
+	$scope.getComet = function() {
+		$http.post('http://localhost/comet', $scope.formData)
+		.success(function(data) {
+			$scope.comets = data;
+		});
+	};
+}
+
+function addGalaxyController($scope, $rootScope, $http) {
+    $rootScope.addGalaxyVar = true;
+    $rootScope.toggleAddGalaxy = function() {
+        $rootScope.planetVar		= true;
+        $rootScope.galaxyNumberVar 	= true;
+        $rootScope.cometVar 		= true;
+        $rootScope.addGalaxyVar 	= false;
+        $rootScope.increaseMassVar	= true;
+    };
+	
+	$scope.formData = {
+		name: 'The Great Gambino',
+		type: 'Elliptical Galaxy',
+		diameter: 78,
+		thickness: 3,
+		mass: 2,
+		spiralPeriod: 399,
+		barPeriod: 101
+	};
+	
+	$scope.addGalaxy = function() {
+		$http.post('http://localhost/galaxy', $scope.formData)
+		.success(function(data) {
+			$scope.galaxies = data;
+		});
+	};
+}
+
+function increaseMassController($scope, $rootScope, $http) {
+    $rootScope.increaseMassVar = true;
+    $rootScope.toggleIncreaseMass = function() {
+        $rootScope.planetVar		= true;
+        $rootScope.galaxyNumberVar 	= true;
+        $rootScope.cometVar 		= true;
+        $rootScope.addGalaxyVar 	= true;
+        $rootScope.increaseMassVar	= false;
+    };
+	
+	$scope.formData = {
+		starName: 'WASP-14',
+		mass: 0
+	};
+	
+	$scope.increaseMass = function() {
+		$http.put('http://localhost/planet', $scope.formData)
+		.success(function(data) {
+			$scope.planets = data;
+		});
+	};
+}
+
+
+</script>
+
+</body>
+</html>
